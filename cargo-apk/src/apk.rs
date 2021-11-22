@@ -59,13 +59,13 @@ impl<'a> ApkBuilder<'a> {
             .android_manifest
             .sdk
             .target_sdk_version
-            .get_or_insert(ndk.default_platform());
+            .get_or_insert_with(|| ndk.default_target_platform());
 
         manifest
             .android_manifest
             .application
             .debuggable
-            .get_or_insert(*cmd.profile() == Profile::Dev);
+            .get_or_insert_with(|| *cmd.profile() == Profile::Dev);
 
         Ok(Self {
             cmd,
@@ -238,7 +238,7 @@ impl<'a> ApkBuilder<'a> {
             .android_manifest
             .sdk
             .target_sdk_version
-            .unwrap_or_else(|| ndk.default_platform());
+            .unwrap_or_else(|| ndk.default_target_platform());
         for target in &self.build_targets {
             let mut cargo = cargo_ndk(&ndk, *target, target_sdk_version)?;
             cargo.args(self.cmd.args());

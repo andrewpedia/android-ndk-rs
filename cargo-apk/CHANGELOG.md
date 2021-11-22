@@ -1,5 +1,9 @@
 # Unreleased
 
+- Default `target_sdk_version` to `30` or lower for more consistent
+  interaction with Android backwards compatibility and tighter rules:
+  https://developer.android.com/distribute/best-practices/develop/target-sdk
+
 # 0.8.2 (2021-11-22)
 
 - Fixed the library name in case of multiple build artifacts in the Android manifest.

@@ -1,5 +1,9 @@
 # Unreleased
 
+- Default `target_sdk_version` to `30` or lower for more consistent
+  interaction with Android backwards compatibility and tighter rules:
+  https://developer.android.com/distribute/best-practices/develop/target-sdk
+
 # 0.4.3 (2021-11-22)
 
 - Provide NDK `build_tag` version from `source.properties` in the NDK root.
