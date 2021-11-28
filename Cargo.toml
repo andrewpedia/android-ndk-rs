@@ -8,3 +8,6 @@ members = [
     "ndk-sys",
     "cargo-apk",
 ]
+
+[patch.crates-io]
+cargo-subcommand={ path ='cargo-subcommand'}
